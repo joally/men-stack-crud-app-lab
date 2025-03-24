@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <title>Create a Car</title>
+    </head>
+  <body>
+    <h1>Create a New Car!</h1>
+    <nav>
+      <ul>
+        <li>
+            <a href="/cars/new">Back to Cars</a>
+        </li>
+      </ul>
+    </nav>
+    <form action="/cars" method="POST">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name">
+        
+          <label for="isReadyToSell">Ready to Sell?</label>
+          <input type="checkbox" name="isReadyToSell" id="isReadyToSell">
+          
+          <button type="submit">Add Car</button>
+
+    </form>
+
+  </body>
+</html>

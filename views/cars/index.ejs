@@ -11,19 +11,21 @@
     <nav>
       <ul>
         <li>
-          <a class="add-car"href="/cars/new">Add New Car</a>
+          <a href="/cars/new">Add New Car</a>
+          
         </li>
       </ul>
     </nav>
    
     <nav>
       <ul>
-        <% cars.forEach(car => { %>
-        
-        <li>
-          <a href="/cars/<%= car._id %>"><name><<%=car.name%>
-           
-        </li>
+         <% cars.forEach(car => { %>
+            <li>
+            <a href="/cars/<%=car._id %>">  
+              <%= car.name %>
+              </a>
+            </li>
+      
         <% }); %>
       </ul>
     </nav>

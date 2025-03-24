@@ -9,17 +9,23 @@
   </head>
   <body>
       <h1><%= car.name %></h1>
-    
-      <% if (car.isReadyToSell) { %>
+      <nav>
+        <ul>
+          <li>
+            <a href="/cars">Back to Cars</a>
+          </li>
+        </ul>
+      </nav>
+    <% if (car.isReadyToSell) { %>
         <p>This car is ready to sell!</p>
         <% } else { %>
         <p> This car is not ready to sell!</p>
        <% } %> 
        
-       <form action="/cars/<%=car._id%>?_method=DELETE" method="POST">
+       <form action="/cars/<%= car._id %>?_method=DELETE" method="POST">
         <button type="submit">Delete <%= car.name %></button>
       </form>
-     <a href="/cars">Back to Cars</a>
+     <a href="/cars/<%= car._id %>/edit">Edit <%= fruit.name  %></a>
       
  </body>
 </html> 

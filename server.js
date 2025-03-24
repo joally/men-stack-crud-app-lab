@@ -37,52 +37,40 @@ app.post('/cars', async (req, res) =>{
 
 await Car.create(req.body);
 
-res.redirect('/cars/new');
+res.redirect('/cars');
 });
 
 app.get('/cars', async (req, res) =>{
   const allCars = await Car.find({});
- 
-  res.render('cars/index.ejs',{cars: allCars});
+ res.render('cars/index.ejs',{cars: allCars});
 
 });
 
-app.get('/cars/:carId', async (req, res) =>{
- 
-  const foundCar = await Car.findById(req.params.carId);
- res.render('cars/show.ejs', {car: foundCar});
+app.get('/cars/:carsId', async(req, res) =>{
+  const foundCar =await Car.findById(req.params.carId);
+  res.render('cars/show.ejs', {car: foundCar});
 });
 
 app.delete('/cars/:carId', async (req, res) => {
-await Car.findByIdAndDelete(req.params.carId);
- res.redirect('/cars');
-});
+  await Car.findByIdAndDelete(req.params.carId);
+   res.redirect('/cars');
+  });
 
-app.get('/cars/:carId/edit', async(req, res) => {
-const foundCar = await Car.findById(req.params.carId);
+  app.get('/cars/:carId/edit', async(req, res) => {
+    const foundCar = await Car.findById(req.params.carId);
+    res.render('cars/edit.ejs',{car:foundCar,});
+    });
 
-res.render('cars/edit.ejs',{car:foundCar,});
-});
-
-app.put('/cars/:carId', async (req, res)=>{
-  if(req.body.isReadyToSell === 'on'){
-    req.boby.isReadyToSell = true;
-  }else{
-    req.body.isReadyToSell =false;
-  }
-  await Car.findByIdAndUpdate(req.params.carId,req.body);
-
-  res.redirect(`/cars/${req.params.carId}`);
-});
-
-
-
-
-
-
- 
-
-
+    app.put('/cars/:carId', async (req, res)=>{
+      if(req.body.isReadyToSell === 'on'){
+        req.boby.isReadyToSell = true;
+      }else{
+        req.body.isReadyToSell =false;
+      }
+      await Car.findByIdAndUpdate(req.params.carId,req.body);
+    
+      res.redirect(`/cars/${req.params.carId}`);
+    });
 
 
 

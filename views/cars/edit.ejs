@@ -7,7 +7,7 @@
     <title>Edit a Car</title>
     </head>
   <body>
-    <h1>Edit<%=car.name %></h1>
+    <h1>Edit<%= car.name %></h1>
     <nav>
       <ul>
         <li>
@@ -16,13 +16,13 @@
         </li>
       </ul>
     </nav>
-    <form action="/cars/<% car._id %>?_method="PUT" method="POST">
+    <form action="/cars/<%= car._id %>?_method=PUT" method="POST">
           <label for="name">Name:</label>
           <input type="text" name="name" id="name" value="<% car.name %>">
 
           <label for="isReadyToSell">Ready to Sell?</label>
           <input type="checkbox" name="isReadyToSell" id="isReadyToSell"<% if(car.isReadyToSell){%>checked<%} %>>
-          <button type="submit">Update Car</button>
+          <button type="submit">Edit Car</button>
         </form>
         
   </body>
